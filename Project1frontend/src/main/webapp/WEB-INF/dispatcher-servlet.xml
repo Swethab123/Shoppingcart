@@ -39,4 +39,5 @@
                    /WEB-INF/resources/images/niit.jpg
        -->
        <mvc:resources location="/WEB-INF/resources/" mapping="/resources/**"></mvc:resources>
+       <mvc:annotation-driven></mvc:annotation-driven>
 </beans>

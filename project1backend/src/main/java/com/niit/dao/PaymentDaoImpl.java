@@ -24,12 +24,6 @@ public class PaymentDaoImpl implements PaymentDao {
 
 	}
 	
-	@Transactional
-	public void paymentsave(Payment payment)
-
-	{
-		sessionFactory.getCurrentSession().save(payment);
-	}
 	
 	
 	public PaymentDaoImpl()

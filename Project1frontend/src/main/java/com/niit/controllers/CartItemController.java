@@ -32,6 +32,7 @@ private ProductService productService;
 	@RequestMapping(value="/cart/addtocart/{id}")
 	public String addToCart(@PathVariable int id,@AuthenticationPrincipal Principal principal,
 			@RequestParam int requestedQuantity){
+		System.out.println("Added to cart");
 	    String email=principal.getName(); //return the email id of the logged in user
 		User user=cartItemService.getUser(email);
 		Product product=productService.getProduct(id);
@@ -61,6 +62,7 @@ private ProductService productService;
 	
 	@RequestMapping(value="/cart/purchasedetails")
 	public String getPurchaseDetails(@AuthenticationPrincipal Principal principal,Model model,HttpSession session){
+		System.out.println("in purchasedetails");
 		String email=principal.getName();
 		User user=cartItemService.getUser(email);
 		List<CartItem> cartItems=user.getCartItems();//list of cartitems/products
@@ -87,6 +89,7 @@ private ProductService productService;
 	
 	@RequestMapping(value="/cart/checkout")
 	public String checkout(@AuthenticationPrincipal Principal principal,Model model){
+		System.out.println("In checkout shippingaddr is created");
 	   User user=cartItemService.getUser(principal.getName());
 	   Customer customer=user.getCustomer();
 	   ShippingAddress shippingAddress=customer.getShippingaddress();
@@ -94,13 +97,24 @@ private ProductService productService;
 	   return "shippingaddress";
 	}
 	
-	
+//	@ModelAttribute("shippingaddress")
+//	public ShippingAddress createSA()
+//	{
+//		return new ShippingAddress();
+//	}
+//	@ModelAttribute("order")
+//	public  CustomerOrder newpayorder()
+//	{
+//		System.out.println("Payment obj created");
+//		return new CustomerOrder();
+//	}
 	@RequestMapping(value="/cart/createorder")
 	//from shippingaddressform.jsp to createOrder method
 	public String createOrder(@AuthenticationPrincipal Principal principal ,
 			                  @ModelAttribute ShippingAddress shippingaddress,
 			                  Model model,
 			                  HttpSession session){
+		System.out.println("Creating order from cart");
 		User user=cartItemService.getUser(principal.getName());
 		Customer customer=user.getCustomer();
 		customer.setShippingaddress(shippingaddress);//updated shippingaddress if it is updated.

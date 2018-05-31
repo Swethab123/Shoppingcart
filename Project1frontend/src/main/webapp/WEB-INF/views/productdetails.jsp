@@ -37,7 +37,7 @@
 				<!-- if you submit, insert into cartitem values (?,quantity,totalprice,product,user) -->
 				Enter quantity:<input type="number" value="1" name="requestedQuantity" min="1" max="${product.quantity }"><br>
 			  <button type="submit" class="btn btn-info button btn-lg"><span class="glyphicon glyphicon-shopping-cart" ></span>Add to cart</button>
-			   <button type="submit" class="btn btn-info button btn-lg"><span class="glyphicon glyphicon" ></span>Buy</button>
+			   <a href="/payment"><button type="submit" class="btn btn-info button btn-lg"><span class="glyphicon glyphicon" ></span>Buy</button></a>
 			  </security:authorize>
 			  </c:if>
 			  </form>

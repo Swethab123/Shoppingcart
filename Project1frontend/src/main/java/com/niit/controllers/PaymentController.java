@@ -6,6 +6,7 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,23 +34,32 @@ public class PaymentController {
 			ModelAndView mv = new ModelAndView("payment");
 			return mv;
 		}*/
+//	@ModelAttribute("order")
+//	public  CustomerOrder newpayorder()
+//	{
+//		System.out.println("Payment obj created");
+//		return new CustomerOrder();
+//	}
+
 
 @RequestMapping(value="/payment", method=RequestMethod.POST)
-       public String pay(@ModelAttribute("order") CustomerOrder order)
+       public String pay(@ModelAttribute("order") CustomerOrder order,Model m)
      {
-	    System.out.println("Payment details");
+	    System.out.println("Payment details, taking order, addtopymt is created");
+	    m.addAttribute("addtopymt",payment);
+	    System.out.println(payment.getPymtemail());
 	       return "payment";
      
      }
 
 
-@ModelAttribute("addtopymt")
-public Payment newpayt()
-{
-	System.out.println("Payment obj created");
-	return new Payment();
-	
-}
+
+//@ModelAttribute("addtopymt")
+//public Payment newpayt()
+//{
+//	System.out.println("Payment obj created");
+//	return new Payment();
+//}
 
 @PostMapping(value="/addpayment")
 public String addingpytm(@ModelAttribute("addtopymt") Payment addtopymt )

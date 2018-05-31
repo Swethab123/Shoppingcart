@@ -23,23 +23,23 @@ public class Payment {
 	public void setPymtid(int pymtid) {
 		this.pymtid = pymtid;
 	}
-	@NotEmpty(message="Payment Name is required(*)")
+	//@NotEmpty(message="Payment Name is required(*)")
 	private String pymtname;
-	@NotEmpty(message="Enter a valid Email Address(*)")
+	//@NotEmpty(message="Enter a valid Email Address(*)")
 	private String pymtemail;
-	@Min(value=10,message="Enter a valid Phone Number")
+	//@Min(value=10,message="Enter a valid Phone Number")
 	private int pymtphone;
-	@NotEmpty(message="Payment Delivery Address is required(*)")
+	//@NotEmpty(message="Payment Delivery Address is required(*)")
 	private String pymtdeliveryaddress;
-	@Min(value=6,message="Enter a valid Post code")
+	//@Min(value=6,message="Enter a valid Post code")
 	private int pymtpostcode;
-	@NotEmpty(message="Country name is required")
+	//@NotEmpty(message="Country name is required")
 	private String pymtcountry;	
-	@Min(value=3,message="Enter a valid Security code")
+	//@Min(value=3,message="Enter a valid Security code")
 	private int pymtsecuritycode;
-	@NotEmpty(message="Name on card is required")
+	//@NotEmpty(message="Name on card is required")
 	private String pymtnameoncard;
-	@Min(value=16,message="Enter a valid Card Number")
+	//@Min(value=16,message="Enter a valid Card Number")
 	private int pymtcardnumber;
 	
 	
